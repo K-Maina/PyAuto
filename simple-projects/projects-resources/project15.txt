@@ -1,0 +1,826 @@
+Course Introduction
+Hello, and welcome to the last course of this program!
+
+Throughout this program, you've had the opportunity to learn and practice lots of different tools and techniques for creating and maintaining automation. You've learned how to write programs in Python, how to interact with files and processes from your Python scripts, how to track the history of your changes using Git, how to understand what's happening when the automation doesn't work as expected, and how to automate your infrastructure by using tools like Puppet. Phew, that’s a lot!
+
+This last course will give you the opportunity to put all this new knowledge in action. You'll be given a bunch of small projects based on real-life scenarios, and you'll use Python to write the automation that will solve the challenges.
+
+Working on these projects will give you the opportunity to start building your programming portfolio. When you’re done with each of them, you can upload the code you write to GitHub to show off your skills!
+
+Since this course builds on top of everything taught in the other courses, you need to have working knowledge of the main concepts we covered: coding in Python, interacting with files and processes, using Git, using the Linux command line, troubleshooting problems, and working with Cloud infrastructure.
+
+Throughout the course, we'll give you an introduction to the tools and techniques necessary for solving each of the projects. We recommend that you follow along by coding on your own computer. Coming up with your own exercises and practicing using the tools that you learn is the best way to master them.
+
+One final note. As you probably noticed, this is a reading and not a video. :) This course is composed of readings that guide you along the path of using Python to solve real-life problems, along with labs that let you put that knowledge in action. We hope you enjoy the challenges and the new skills you gain along the way.
+
+
+Welcome to the Course!
+Welcome to the course!
+In this course, you’ll use the knowledge that you acquired throughout the program to solve some interesting real-world IT problems.
+
+Course prerequisites
+This course builds upon the contents taught in throughout the Google IT Automation with Python Professional Certificate:
+
+Programming with Python
+Using Git
+Interacting with the OS from the command line
+Working with VMs running in the Cloud
+To get the most out of this course, we strongly recommend that you install software in your machine, or have your system administrator install it.
+
+Qwiklabs
+For our exercises, you'll be using an application called Qwiklabs. Qwiklabs lets you interact with a computer running an operating system that might not be the same one running on your machine. The Qwiklabs scenarios will allow you to solve some real-world problems, putting your knowledge to work through active learning exercises.
+
+Getting and giving help
+Here are a few ways you can give and get help: 
+
+Discussion forums: You can share information and ideas with your fellow learners in the discussion forums. These are also great places to find answers to questions you may have. If you're stuck on a concept, are struggling to solve a practice exercise, or you just want more information on a subject, the discussion forums are there to help you move forward.
+Coursera learner support: Use the Learner Help Center to find information on specific technical issues. These include error messages, difficulty submitting assignments, or problems with video playback. If you can’t find an answer in the documentation, you can also report your problem to the Coursera support team by clicking on the Contact Us! link available at the bottom of help center articles.
+Qwiklabs support: Please use the Qwiklabs support request form to report any issues with accessing or using Qwiklabs. A member of the Qwiklabs team will work with you to help resolve the problem.
+Course content issues: You can also flag problems in course materials by rating them. When you rate course materials, the instructor will see your ratings and feedback; other learners won’t. To rate course materials:
+Open the course material you want to rate. You can only rate videos, readings, and quizzes.
+If the content was interesting or helped you learn, click the thumbs-up icon.
+If the content was unhelpful or confusing, click the thumbs-down icon.
+Finding out more information
+Throughout this course, we'll look into techniques for solving real-world IT problems. While we’ll provide a lot of information through supplemental readings, sometimes you may need to look things up on your own, now and throughout your career. Things change fast in IT, so it’s critical to do your own research to stay up-to-date on what’s new. We recommend you use your favorite search engine to find more information about concepts we cover in this course — it’s great practice for the real world!
+
+
+How to Use PIL for Working With Images
+As we've mentioned, for the project in this module, you'll use the Python Imaging Library to process a bunch of images. So, how does that work?
+
+When using PIL, we typically create Image objects that hold the data associated with the images that we want to process. On these objects, we operate by calling different methods that either return a new image object or modify the data in the image, and then end up saving the result in a different file.
+
+For example, if we wanted to resize an image and save the new image with a new name, we could do it with:
+
+12345
+from PIL import Image
+im = Image("example.jpg")
+new_im = im.resize((640,480))
+new_im.save("example_resized.jpg")
+
+In this case, we're using the resize method that returns a new image with the new size, and then we save it into a different file. Or, if we want to rotate an image, we can use code like this:
+
+12345
+from PIL import Image
+im = Image("example.jpg")
+new_im = im.rotate(90)
+new_im.save("example_rotated.jpg")
+
+This method also returns a new image that we can then use to create the new rotated file. Because the methods return a new object, we can even combine these operations into just one line that rotates, resizes, and saves:
+
+1234
+from PIL import Image
+im = Image("example.jpg")
+im.rotate(180).resize((640,480)).save("flipped_and_resized.jpg")
+
+There's a ton more that you can do with the PIL library. Have a look at the docs and try it on your computer! 
+
+
+Project Problem Statement
+To complete this module, you'll need to write a script that processes a bunch of images. It turns out that your company is in the process of updating its website, and a design contractor has been hired to create some new icon graphics for the site. However, the contractor has delivered the final designs and they’re in the wrong format, rotated 90° and too large. You’re unable to get in contact with the designers and your own deadline is approaching fast. You’ll need to use Python to get these images ready for launch!
+
+So, how will you do this? You'll need to go through a folder full of images and operate with each of them. On each image, you'll use PIL methods like the ones we saw in the examples, and then write the new images in the right place.
+
+If this sounds tricky, don't panic! You've already seen everything you need to do this, and now it's time to put it into practice.
+
+As in the previous courses, the assessment will be done on a Virtual Machine running in the Cloud, thanks to the Qwiklabs infrastructure. You'll only have access to the VM for a limited amount of time, so we recommend that you write the script locally in your computer first, and only start the lab once your script is working correctly.
+
+Good luck, you've got this!
+
+
+Module 2 Introduction
+Congratulations on making it through the first lab in this course!
+
+Remember that putting your Python skills to practice with exercises like this one is the way to getting the hang of it all. By practicing solving complex challenges, you'll become a lot more confident in your programming abilities, and you'll be able to achieve a lot more.
+
+In this module, we'll look into a bunch of different tools that can be really useful in today's IT world. You'll first learn how you can use different text formats to store data in text files, retrieve it, and even transmit it over the internet.
+
+Later on, we'll look into how we can get our code to interact with services running on different computers using a module called Python Requests.
+
+We'll see a bunch of different examples and give you pointers to more information. Don't forget that the best way to get comfortable with all these modules and libraries is to come up with your own examples and practice writing scripts on your local computer!
+
+Web Applications and Services
+A web application is an application that you interact with over HTTP. Most of the time when you’re using a website on the Internet, you’re interacting with a web application. So, how does this look behind the scenes?
+
+Your web browser sends an HTTP request to a web server. Then, the web server passes the request along to the web application in charge of deciding what information to show you. The application then generates the website content (in HTML format). The application is also in charge of serving images and any other necessary data so that your web browser can render the website on your computer.
+
+Lots of web applications also have APIs that you can use from your scripts! Web applications that have an API are also known as web services. Instead of browsing to a web page to type and click around, you can use your program to send a message known as an API call to the web service. The part of the program that listens on the network for API calls is called an API endpoint.
+
+When you interact with a web service like this, you don't even care what language the other application is using. You interact with it using a specified protocol, and the only important constraint is that both the service and your program know how to use this protocol.
+
+So, how does that work? That's coming up!
+
+Data Serialization
+If you have two programs that need to communicate with each other, how do you get that data from one place to another? We're going to talk about two aspects of that problem: what to send, and how to send it.
+
+First, what do you send? When you have a conversation with another person, you don't send thoughts and memories directly between your brains. At least not yet! You first have to convert your thoughts into language, and then transmit that language to another person. They take that language, and convert it back into thoughts. It’s the same with programs running in different places, or at different times.
+
+In a previous course, we took a list of lists in memory and wrote it to disk as a Comma-Separated Value (CSV) file. This is one example of a technique called data serialization. Data serialization is the process of taking an in-memory data structure, like a Python object, and turning it into something that can be stored on disk or transmitted across a network. Later, the file can be read, or the network transmission can be received by another program and turned back into an object again. Turning the serialized object back into an in-memory object is called deserialization.
+
+Data serialization is extremely useful for communicating with web services. A web service's API endpoint takes messages in a specific format, containing specific data. By the end of this module, we'll be sending messages to web services, but for now let's concentrate on how to serialize Python objects into some common formats.
+
+Let's start with the contact information from one of our CSV examples. We'll keep just two entries to keep our examples short, but there's no limit to how long these can be.
+
+123
+name,username,phone,department,role
+Sabrina Green,sgreen,802-867-5309,IT Infrastructure,System Administrator
+Eli Jones,ejones,684-3481127,IT Infrastructure,IT specialist
+Instead of having a list of lists, we could turn this information into a list of dictionaries. In each of these dictionaries, the key will be the name of the column, and the value will be the corresponding information in each row.  It could look something like this:  
+
+1234567891011121314151617
+people = [
+    {
+        "name": "Sabrina Green",
+        "username": "sgreen",
+        "phone": "802-867-5309",
+        "department": "IT Infrastructure",
+        "role": "Systems Administrator"
+    },
+    {
+        "name": "Eli Jones",
+
+Using a structure like this lets us do interesting things with our information that’s much harder to do with CSV files. For example, let's say we want to record more than one phone number for each person. Instead of using a single string for "phone", we could represent that data in another dictionary, like this:  
+
+12345678910111213141516171819202122
+people = [
+    {
+        "name": "Sabrina Green",
+        "username": "sgreen",
+        "phone": {
+            "office": "802-867-5309",
+            "cell": "802-867-5310"
+        },
+        "department": "IT Infrastructure",
+        "role": "Systems Administrator"
+
+Now, we can record multiple phone numbers per person, and give them descriptive names like "office" and "cell". This would be hard to store in a CSV file, because the data is not flat. To help us with that, there's a bunch of different formats that we can use to store our data when the structure isn't flat.
+
+Up next, we'll look into a few of the most common ones.
+
+
+Data Serialization Formats
+There are lots and lots of ways to serialize data. In this course, we'll cover a couple of the most common ones and we'll look into how you can use them from Python. Once you get the hang of how this works, it's super easy to use a different format if needed.
+
+JSON (JavaScript Object Notation) is the serialization format that we'll use the most in this course. We'll go into some details later but, for now, let's just use the json module to convert our people list of dictionaries into JSON format.  
+
+1234
+import json
+
+with open('people.json', 'w') as people_json:
+    json.dump(people, people_json, indent=2)
+This code uses the json.dump() function to serialize the people object into a JSON file. The contents of the file will look something like this:  
+
+12345678910111213141516171819202122
+[
+  {
+    "name": "Sabrina Green",
+    "username": "sgreen",
+    "phone": {
+      "office": "802-867-5309",
+      "cell": "802-867-5310"
+    },
+    "department": "IT Infrastructure",
+    "role": "Systems Administrator"
+
+YAML (Yet Another Markup Language) has a lot in common with JSON. They’re both formats that can be easily understood by a human when looking at the contents. In this example, we’re using the yaml.safe_dump() method to serialize our object into YAML:  
+
+1234
+import yaml
+
+with open('people.yaml', 'w') as people_yaml:
+    yaml.safe_dump(people, people_yaml)
+That code will generate a people.yaml file that looks like this:  
+
+12345678910111213
+- department: IT Infrastructure
+  name: Sabrina Green
+  phone:
+    cell: 802-867-5310
+    office: 802-867-5309
+  role: Systems Administrator
+  username: sgreen
+- department: IT Infrastructure
+  name: Eli Jones
+  phone:
+
+While this doesn't look exactly like the JSON example above, both formats list the names of the fields as part of the format, so that both the programs parsing the data and the humans looking at it can make sense out of it. The main difference is how these formats are used. JSON is used frequently for transmitting data between web services, while YAML is used the most for storing configuration values.
+
+These are just a couple of the most common data serialization formats. We've left out some other pretty common ones like Python pickle, Protocol Buffers, or the eXtensible Markup Language (XML). Each of them is useful in a specific context, although not the focus of this course. You can read more about them by following those links.  
+
+More About JSON
+Alright, we've seen a couple of different serialization formats. Let's now dive into more details about JSON (JavaScript Object Notation), which you'll be using in the lab at the end of this module.
+
+As we mentioned before, JSON is human-readable, which means it’s encoded using printable characters, and formatted in a way that a human can understand. This doesn't necessarily mean that you will understand it when you look at it, but you can.
+
+Lots of web services send messages back and forth using JSON. In this module, and in future ones, you’ll serialize JSON messages to send to a web service.
+
+JSON supports a few elements of different data types. These are very basic data types; they represent the most common basic data types supported by any programming language that you might use.
+
+JSON has strings, which are enclosed in quotes.  
+
+1
+"Sabrina Green"
+It also has numbers, which are not.  
+
+1
+1002
+JSON has objects, which are key-value pair structures like Python dictionaries.  
+
+123456
+{
+  "name": "Sabrina Green",
+  "username": "sgreen",
+  "uid": 1002
+}
+
+And a key-value pair can contain another object as a value.  
+
+12345678910
+{
+  "name": "Sabrina Green",
+  "username": "sgreen",
+  "uid": 1002,
+  "phone": {
+    "office": "802-867-5309",
+    "cell": "802-867-5310"
+  }
+}
+
+JSON has arrays, which are equivalent to Python lists. Arrays can contain strings, numbers, objects, or other arrays.  
+
+1234567891011121314151617
+[
+  "apple",
+  "banana",
+  12345,
+  67890,
+  {
+    "name": "Sabrina Green",
+    "username": "sgreen",
+    "phone": {
+      "office": "802-867-5309",
+
+And as you’ve probably noticed, JSON elements are always comma-delimited. With these basics under your belt, you could create valid JSON by hand, and edit examples of JSON that you encounter. Except we don't really want to do that, since it's clunky and we’re bound to make a ton of errors! Instead, let’s use the json library that does all the heavy lifting for us.  
+
+1
+import json
+The json library will help us turn Python objects into JSON, and turn JSON strings into Python objects! The dump() method serializes basic Python objects, writing them to a file. Like in this example:  
+
+1234567891011121314151617181920212223242526
+import json
+
+people = [
+  {
+    "name": "Sabrina Green",
+    "username": "sgreen",
+    "phone": {
+      "office": "802-867-5309",
+      "cell": "802-867-5310"
+    },
+
+That gives us a file with a single line that looks like this:  
+
+1
+[{"name": "Sabrina Green", "username": "sgreen", "phone": {"office": "802-867-5309", "cell": "802-867-5310"}, "department": "IT Infrastructure", "role": "Systems Administrator"}, {"name": "Eli Jones", "username": "ejones", "phone": {"office": "684-348-1127"}, "department": "IT Infrastructure", "role": "IT Specialist"}]
+JSON doesn't need to contain multiple lines, but it sure can be hard to read the result if it's formatted this way! Let's use the indent parameter for json.dump() to make it a bit easier to read.  
+
+12
+with open('people.json', 'w') as people_json:
+    json.dump(people, people_json, indent=2)
+The resulting file should look like this:  
+
+12345678910111213141516171819202122
+[
+  {
+    "name": "Sabrina Green",
+    "username": "sgreen",
+    "phone": {
+      "office": "802-867-5309",
+      "cell": "802-867-5310"
+    },
+    "department": "IT Infrastructure",
+    "role": "Systems Administrator"
+
+Now it’s much easier to follow! In fact, it looks very similar to how you’d write out the object in Python. Cool!
+
+Another option is to use the dumps() method, which also serializes Python objects, but returns a string instead of writing directly to a file.  
+
+1234567891011121314151617181920212223242526
+>>> import json
+>>> 
+>>> people = [
+...   {
+...     "name": "Sabrina Green",
+...     "username": "sgreen",
+...     "phone": {
+...       "office": "802-867-5309",
+...       "cell": "802-867-5310"
+...     },
+
+The load() method does the inverse of the dump() method. It deserializes JSON from a file into basic Python objects. The loads() method also deserializes JSON into basic Python objects, but parses a string instead of a file.  
+
+123456
+>>> import json
+>>> with open('people.json', 'r') as people_json:
+...     people = json.load(people_json)
+... 
+>>> print(people)
+[{'name': 'Sabrina Green', 'username': 'sgreen', 'phone': {'office': '802-867-5309', 'cell': '802-867-5310'}, 'department': 'IT Infrastructure', 'role': 'Systems Administrator'}, {'name': 'Eli Jones', 'username': 'ejones', 'phone': {'office': '684-348-1127'}, 'department': 'IT Infrastructure', 'role': 'IT Specialist'}, {'name': 'Melody Daniels', 'username': 'mdaniels',
+Remember that JSON elements can only represent simple data types. If you have complex Python objects, you won’t be able to automatically serialize them as JSON. Take a look at this table to see in detail how Python objects are converted into JSON elements.  
+
+The Python Requests Library
+Up to now, we've seen how we can serialize the data that we have in our programs and turn it into a format that we can store on disk. Once the data is stored, another process can open up those files, de-serialize them, and go from there.
+
+This works, but only if the other process has access to the same filesystem you used to store your data. What if you wanted to send a message to another computer on another network? HTTP to the rescue!
+
+Remember that HTTP (HyperText Transfer Protocol) is the protocol of the world-wide web. When you visit a webpage with your web browser, the browser is making a series of HTTP requests to web servers somewhere out on the Internet. Those servers will answer with HTTP responses. This is also how we’re going to send and receive messages with web applications from our code.
+
+The Python Requests library makes it super easy to write programs that send and receive HTTP. Instead of having to understand the HTTP protocol in great detail, you can just make very simple HTTP connections using Python objects, and then send and receive messages using the methods of those objects. Let's look at an example:  
+
+12
+>>> import requests
+>>> response = requests.get('https://www.google.com')
+That's it! That was a basic request for a web page! We used the Requests library to make a HTTP GET request for a specific URL, or Uniform Resource Locator. The URL tells the Requests library the name of the resource (www.google.com) and what protocol to use to get the resource (https://). The result we get is an object of type requests.Response.
+
+Alright, now what did the web server respond with? Let's take a look at the first 300 characters of the Response.text:  
+
+123
+>>> print(response.text[:300])
+<!doctype html><html itemscope="" itemtype="http://schema.org/WebPage" lang="de"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image"><title>Google</title><script nonce="dZfbIAn803LDGXS9
+
+Now, it might be hard for you to read the HTML (HyperText Markup Language) that was returned in this response, but your web browser knows just how to turn that into a familiar-looking web page.
+
+Even with this simple example, the Requests module has done a whole lot of work for us! We didn't have to write any code to find the web server, make a network connection, construct an HTTP message, wait for a response, or decode the response. Not that HTML can't be messy enough on its own, but let's look at the first bytes of the raw message that we received from the server:  
+
+1234
+>>> response = requests.get('https://www.google.com', stream=True)
+>>> print(response.raw.read()[:100])
+b'\x1f\x8b\x08\x00\x00\x00\x00\x00\x02\xff\xc5Z\xdbz\x9b\xc8\x96\xbe\xcfS`\xf2\xb5-\xc6X\x02$t\xc28\xe3v\xdc\xdd\xee\xce\xa9\xb7\xdd;\xe9\x9d\xce\xf6W@\t\x88\x11`@>D\xd6\x9b\xce\xe5<\xc3\\\xcd\xc5\xfc\xab8\x08\xc9Nz\x1f.&\x8e1U\xb5j\xd5:\xfc\xb5jU\x15\x87;^\xe2\x16\xf7)\x97\x82b\x1e\x1d\x1d\xd2S'
+
+What's all that? The response was compressed with gzip, so it had to be decompressed before we could even read the text of the HTML. One more thing that the Requests library handled for us!
+
+The requests.Response object also contains the exact request that was created for us. We can check out the headers stored in our object to see that the Requests module told the web server that it was okay to compress the content:  
+
+123
+>>> response.request.headers['Accept-Encoding']
+'gzip, deflate'
+
+And then the server told us that the content had actually been compressed.  
+
+123
+>>> response.headers['Content-Encoding']
+'gzip'
+
+And all this happened by default, without us having to do anything special to make it work. Amazing, right?  
+
+
+Useful Operations for Python Requests
+There's a ton of things that we can do with Python Requests.  We'll cover some of the most important features here and give you pointers for more information at the end.
+
+First, how do we know if a request we made got a successful response? You can check out the value of Response.ok, which will be True if the response was good, and False if it wasn't.  
+
+123
+>>> response.ok
+True
+
+Now, keep in mind that this will only tell you if the web server says that the response successfully fulfilled the request. The response module can’t determine if that data that you got back is the kind of data that you were expecting. You'll need to do your own checking for that!
+
+If the boolean isn’t specific enough for your needs, you can get the HTTP response code that was returned by looking at Response.status_code:  
+
+123
+>>> response.status_code
+200
+
+Excellent! To write maintainable, stable code, you’ll always want to check your responses to make sure they succeeded before trying to process them further. For example, you could do something like this:  
+
+123
+response = requests.get(url)
+if not response.ok:
+    raise Exception("GET failed with status code {}".format(response.status_code))
+But you don't really need to do that. Requests has us covered here, too! We can use the Response.raise_for_status() method, which will raise an HTTPError exception only if the response wasn’t successful.  
+
+12
+response = requests.get(url)
+response.raise_for_status()
+Up next, we'll look into the different types of HTTP request methods that we can make using this handy requests module.  
+
+HTTP GET and POST Methods
+HTTP supports several HTTP methods, like GET, POST, PUT, and DELETE. We're going to spend time on the two most common HTTP requests: GET and POST.
+
+The HTTP GET method, of course, retrieves or gets the resource specified in the URL. By sending a GET request to the web server, you’re asking for the server to GET the resource for you. When you’re browsing the web, most of what you’re doing is using your web browser to issue a whole bunch of GET requests for the text, images, videos, and so forth that your browser will display to you.
+
+A GET request can have parameters. Have you ever seen a URL that looked like this?  
+
+1
+https://example.com/path/to/api/cat_pictures?search=grey+kitten&max_results=15
+The question mark separates the URL resource from the resource's parameters. These parameters are one or more key-value pairs, formatted as a query string. In the example above, the search parameter is set to "grey+kitten", and the max_results parameter is set to 15.
+
+But you don't have to write your own code to create an URL like that one. With requests.get(), you can provide a dictionary of parameters, and the Requests module will construct the correct URL for you!  
+
+123456
+>>> p = {"search": "grey kitten",
+...      "max_results": 15}
+>>> response = requests.get("https://example.com/path/to/api", params=p)
+>>> response.request.url
+'https://example.com/path/to/api?search=grey+kitten&max_results=15'
+
+You might notice that using parameters in Requests is yet another form of data serialization. Query strings are handy when we want to send small bits of information, but as our data becomes more complex, it can get hard to represent it using query strings. 
+
+An alternative in that case is using the HTTP POST method. This method sends, or posts, data to a web service. Whenever you fill a web form and press a button to submit, you're using the POST method to send that data back to the web server. This method tends to be used when there's a bunch of data to transmit.
+
+In our scripts, a POST request looks very similar to a GET request. Instead of setting the params attribute, which gets turned into a query string and appended to the URL, we use the data attribute, which contains the data that will be sent as part of the POST request.  
+
+1234
+>>> p = {"description": "white kitten",
+...      "name": "Snowball",
+...      "age_months": 6}
+>>> response = requests.post("https://example.com/path/to/api", data=p)
+Let's check out the generated URL for this request:  
+
+123
+>>> response.request.url
+'https://example.com/path/to/api'
+
+See how much simpler the URL is on this POST now? Where did all of the parameters go? They’re part of the body of the HTTP message. We can see them by checking out the body attribute.  
+
+123
+>>> response.request.body
+'description=white+kitten&name=Snowball&age_months=6'
+
+Ah, ha! There they are!
+
+So, if we need to send and receive data from a web service, we can turn our data into dictionaries and then pass that as the data attribute of a POST request.
+
+Today, it's super common to send and receive data specifically in JSON format, so the Requests module can do the conversion directly for us, using the json parameter.  
+
+12345
+>>> response = requests.post("https://example.com/path/to/api", json=p)
+>>> response.request.url
+'https://example.com/path/to/api'
+>>> response.request.body
+b'{"description": "white kitten", "name": "Snowball", "age_months": 6}' 
+And that's it for our brief introduction to the Requests module. If you want to learn more, feel free to work through the Requests Quickstart.
+
+In the project at the end of this module, you’ll use the Requests module to interact with a web application. This simple application was created using the Django web framework. So, what's that, exactly? Read on to learn more!
+
+ 
+
+What is Django?
+The lab project at the end of this module will feature a very simple web application created using Django. Django is a full-stack web framework written in Python. For this project, you'll only need to interact with it through HTTP requests, but it's still a good idea to understand what it is, and when it would be a good tool for you to use.
+
+A full-stack web framework handles a bunch of different components that are typical when creating a web application. It contains libraries that help you handle each of the pieces: writing your application's code, storing and retrieving data, receiving web requests, and responding to them. If you need to build an application that has a web frontend, using a web framework like Django can save you a lot of time and effort, because a lot of challenges are already solved for you.
+
+Web frameworks are commonly split into three basic components: (1) the application code, where you'll add all of your application's logic; (2) the data storage, where you'll configure what data you want to store and how you're storing it; and (3) the web server, where you'll state which pages are served by which logic.
+
+Splitting your code like that helps you write more modular code, promotes code reuse, and allows for flexibility when viewing and accessing data. For example, you could have a simple web page where users of the system can access the information already stored in it, and a separate programmatic interface that can be used by other scripts or applications to transmit data to the system.
+
+When you’re writing a web application, there's a ton of little decisions to make. Relying on a framework like Django is similar to using external libraries for your code. There are a lot of features, which you can use very easily, instead of writing everything from scratch and re-making all of the same mistakes that we all make when writing a web application for the first time.
+
+Django has a ton of useful components for building websites. In the lab project, Django will be used for serving the company website, including customer reviews. It does this by taking the request for a URL and parsing it using the urlresolver module. This is a core module in Django that interprets URL requests and matches them against a list of defined patterns. If a URL matches a pattern, the request is passed to the associated function, called a view. This allows you to serve different pages depending on what URL is being requested. You can even build complex logic into the function handling the request to make more dynamic, interactive, and exciting pages.
+
+Django can also handle reading and writing data from a database, letting you store and retrieve data used by your application. In the lab, the database holds the customer reviews for the company. When a user loads the website, the logic will ask the database for all available customer reviews. These are retrieved and formatted into a web page, which is served as a response to the URL request. Django makes it easy to interact with data stored in a database by using an object-relational mapper, or ORM. This tool provides an easy mapping between data models defined as Python classes and an underlying database that stores the data in question.
+
+On top of this, the Django application running in the lab includes an endpoint that can be used to add new customer reviews to the database. This endpoint is configured to receive data in JSON format, sent through an HTTP POST request. The data transmitted will then be stored in the database and added to the list of all reviews. The framework even generates an interactive web form, that lets us directly interact with the endpoint using our browser, which can be really handy for testing and debugging.
+
+Django is one of many popular web frameworks. Alternative Python-based web frameworks similar to Django include Flask, Bottle, CherryPy, and CubicWeb. There are a host of other frameworks written in other languages too, not just Python.
+
+ 
+
+Module 3 Introduction
+Welcome back! And congratulations on completing yet another tricky lab.
+
+As you get to practice your Python skills you're probably starting to see that there's a lot more to learn out there. And that's true, there's a lot of tools to help us do a ton of different things. But don't panic! You don't need to learn all these tools at the same time.  This course is designed to help you get a first taste of some of the tools available, so that you can learn about more tools in the future. As you keep writing more and more programs, you'll keep coming across more and more tools, expanding your Python skills and knowledge.
+
+In this module, we'll look into a different aspect of automation: automating the generation of nicely formatted output from our scripts, like sending emails.
+
+Most of us use email for a bunch of different things, all the time. We type up an email message, sometimes  attach a picture or a document, and send it to someone in our contact list. Have you ever used a script to send an email? By the end of this module, you’ll be able to send an email message with an attachment from Python! You'll even learn how to generate PDF files to attach to those emails.
+
+To help with that, we'll look into a bunch of different Python modules that already include a lot of the functionalities that we want. As we've called out, this is one of the great things about Python -- we can use these modules to accomplish what we want with very little code!
+
+We'll show examples of how you can do a bunch of different operations, like creating the contents of the email or the PDF, attaching a file to an email, and even sending the email to an SMTP server. As always, we recommend that you follow along on your own computer, and even try to come up with new ways to use these libraries.
+
+At the end, you'll have the opportunity to put all of this in practice through the lab.
+
+Introduction to Python Email Library
+Email messages look simple in an email client. But behind the scenes the client is doing a lot of work to make that happen! Email messages -- even messages with images and attachments -- are actually complicated text structures made entirely of readable strings!
+
+The Simple Mail Transfer Protocol (SMTP) and Multipurpose Internet Mail Extensions (MIME) standards define how email messages are constructed. You could read the standards documentation and create email messages all on your own, but you don't need to go to all that trouble. The email built-in Python module lets us easily construct email messages.
+
+We'll start by using the email.message.EmailMessage class to create an empty email message.
+
+123
+>>> from email.message import EmailMessage
+>>> message = EmailMessage()
+>>> print(message)
+As usual, printing the message object gives us the string representation of that object. The email library has a function that converts the complex EmailMessage object into something that is fairly human-readable. Since this is an empty message, there isn't anything to see yet. Let's try adding the sender and recipient to the message and see how that looks.
+
+We'll define a couple of variables so that we can reuse them later.
+
+12
+>>> sender = "me@example.com"
+>>> recipient = "you@example.com"
+And now, add them to the From and To fields of the message.
+
+12345
+>>> message['From'] = sender
+>>> message['To'] = recipient
+>>> print(message)
+From: me@example.com
+To: you@example.com
+Cool! That's starting to look a bit more like an email message now. How about a subject?
+
+12345
+>>> message['Subject'] = 'Greetings from {} to {}!'.format(sender, recipient)
+>>> print(message)
+From: me@example.com
+To: you@example.com
+Subject: Greetings from me@example.com to you@example.com!
+From, To, and Subject are examples of email header fields. They’re key-value pairs of labels and instructions used by email clients and servers to route and display the email. They’re separate from the email's message body, which is the main content of the message.
+
+Let's go ahead and add a message body!
+
+1234
+>>> body = """Hey there!
+...
+... I'm learning to send emails using Python!"""
+>>> message.set_content(body)
+Alright, now what does that look like?
+
+1234567891011
+>>> print(message)
+From: me@example.com
+To: you@example.com
+Subject: Greetings from me@example.com to you@example.com!
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Hey there!
+
+
+The message has a body! The set_content() method also automatically added a couple of headers that the email infrastructure will use when sending this message to another machine. Remember in an earlier course, when we talked about character encodings? The Content-Type and Content-Transfer-Encoding headers tell email clients and servers how to interpret the bytes in this email message into a string. Now, what about this other header? What is MIME? We'll learn about that next!
+
+Adding Attachments
+Remember, email messages are made up completely of strings. When you add an attachment to an email, whatever type the attachment happens to be, it’s encoded as some form of text. The Multipurpose Internet Mail Extensions (MIME) standard is used to encode all sorts of files as text strings that can be sent via email. 
+
+Let's dive in and break down how that works.
+
+In order for the recipient of your message to understand what to do with an attachment, you  need to label the attachment with a MIME type and subtype to tell them what sort of file you’re sending. The Internet Assigned Numbers Authority (IANA) (iana.org) hosts a registry of valid MIME types. If you know the correct type and subtype of the files you’ll be sending, you can use those values directly. If you don't know, you can use the Python mimetypes module to make a good guess!
+
+1234567
+>>> import os.path
+>>> attachment_path = "/tmp/example.png"
+>>> attachment_filename = os.path.basename(attachment_path)
+>>> import mimetypes
+>>> mime_type, _ = mimetypes.guess_type(attachment_path)
+>>> print(mime_type)
+image/png
+Alright, that mime_type string contains the MIME type and subtype, separated by a slash. The EmailMessage type needs a MIME type and subtypes as separate strings, so let's split this up:
+
+123456
+>>> mime_type, mime_subtype = mime_type.split('/', 1)
+>>> print(mime_type)
+image
+>>> print(mime_subtype)
+png
+
+Now, finally! Let's add the attachment to our message and see what it looks like.
+
+12345678910111213141516171819202122232425262728293031
+>>> with open(attachment_path, 'rb') as ap:
+...     message.add_attachment(ap.read(),
+...                            maintype=mime_type,
+...                            subtype=mime_subtype,
+...                            filename=os.path.basename(attachment_path))
+... 
+>>> print(message)
+Content-Type: multipart/mixed; boundary="===============5350123048127315795=="
+
+--===============5350123048127315795==
+
+The entire message can still be serialized as a text string, including the image that we attached! The email message as a whole has the MIME type "multipart/mixed". Each part of the message has its own MIME type. The message body is still there as a "text/plain" part, and the image attachment is a "image/png" part. Cool!
+
+Now, how do we send this email message? That's coming up!
+
+Sending the Email Through an SMTP Server
+As we called out, to send emails, our computers use the Simple Mail Transfer Protocol (SMTP). This protocol specifies how computers can deliver email to each other. There are certain steps that need to be followed to do this correctly. But, as usual, we won't do this manually; we’ll send the message using the built-in smtplib Python module. Let's start by importing the module.
+
+1
+>>> import smtplib
+With smtplib, we'll create an object that will represent our mail server, and handle sending messages to that server. If you’re using a Linux computer, you might already have a configured SMTP server like postfix or sendmail. But maybe not. Let's create a smtplib.SMTP object and try to connect to the local machine.
+
+12345
+>>> mail_server = smtplib.SMTP('localhost')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  (...We deleted a bunch of lines here...)
+ConnectionRefusedError: [Errno 61] Connection refused
+Oops! This error means that there's no local SMTP server configured. But don't panic! You can still connect to the SMTP server for your personal email address. Most personal email services have instructions for sending email through SMTP; just search for the name of your email service and "SMTP connection settings".
+
+When setting this up, there are a couple of things that you'll probably need to do: Use a secure transport layer and authenticate to the service using a username and password. Let's see what this means in practice.
+
+You can connect to a remote SMTP server using Transport Layer Security (TLS). An earlier version of the TLS protocol was called Secure Sockets Layer (SSL), and you’ll sometimes see TLS and SSL used interchangeably. This SSL/TLS is the same protocol that's used to add a secure transmission layer to HTTP, making it HTTPS. Within the smtplib, there are two classes for making connections to an SMTP server: The SMTP class will make a direct SMTP connection, and the SMTP_SSL class will make a SMTP connection over SSL/TLS. Like this:
+
+1
+>>> mail_server = smtplib.SMTP_SSL('smtp.example.com')
+If you want to see the SMTP messages that are being sent back and forth by the smtplib module behind the scenes, you can set the debug level on the SMTP or SMTP_SSL object. The examples in this lesson won’t show the debug output, but you might find it interesting!
+
+1
+mail_server.set_debuglevel(1)
+Now that we’ve made a connection to the SMTP server, the next thing we need to do is authenticate to the SMTP server. Typically, email providers wants us to provide a username and password to connect. Let's put the password into a variable so it's not visible on the screen.
+
+12345
+>>> import getpass
+>>> mail_pass = getpass.getpass('Password? ')
+Password?
+>>>
+
+The example above uses the getpass module so that passers-by won't see the password on the screen. Watch out, though; the mail_pass variable is still just an ordinary string!
+
+12
+>>> print(mail_pass)
+It'sASecr3t!
+Now that we have the email user and password configured, we can authenticate to the email server using the SMTP object's login method.
+
+12
+>>> mail_server.login(sender, mail_pass)
+(235, b'2.7.0 Accepted')
+If the login attempt succeeds, the login method will return a tuple of the SMTP status code and a message explaining the reason for the status. If the login attempt fails, the module will raise a SMTPAuthenticationError exception.
+
+If you wrote a script to send an email message, how would you handle this exception?
+
+Sending your message
+Alright! We're connected and authenticated to the SMTP server. Now, how do we send the message?
+
+123
+>>> mail_server.send_message(message)
+{}
+
+Okay, well that last bit was pretty easy! We did the hard part first! The send_message method returns a dictionary of any recipients that weren’t able to receive the message. Our message was delivered successfully, so send_message returned an empty dictionary. Finally, now that the email is sent, let's close the connection to the mail server.
+
+1
+>>> mail_server.quit()
+And there you have it! We covered a lot in this lesson, so let's recap! First, we constructed an email message by using the built-in email module's EmailMessage class. Next, we added an attachment to our message with the help of the built-in mimetypes module. Finally, we connected to a SMTP server and sent the email using the smtplib module's 's SMTP_SSL class.
+
+Did you have any idea all of this was happening behind a simple email message?
+
+Introduction to Generating PDFs
+Depending on what your automation does, you might want to generate a PDF report at the end, which lets you decide exactly how you want your information to look like.
+
+There's a few tools in Python that let you generate PDFs with the content that you want. Here, we'll learn about one of them: ReportLab. ReportLab has a lot of different features for creating PDF documents. We'll cover just the basics here, and give you pointers for more information at the end.
+
+For our examples, we'll be mostly using the high-level classes and methods in the Page Layout and Typography Using Scripts (PLATYPUS) part of the ReportLab module.
+
+Let's say that I have an awesome collection of fruit, and I want to create a PDF report of all the different kinds of fruit I have! I can easily represent the different kinds of fruit and how much of each I have with a Python dictionary. It might look something like this:
+
+12345678910
+fruit = {
+  "elderberries": 1,
+  "figs": 1,
+  "apples": 2,
+  "durians": 3,
+  "bananas": 5,
+  "cherries": 8,
+  "grapes": 13
+}
+
+Now let's take this information and turn it into a report that we can show off! We're going to use the SimpleDocTemplate class to build our PDF. 
+
+12
+>>> from reportlab.platypus import SimpleDocTemplate
+>>> report = SimpleDocTemplate("/tmp/report.pdf")
+The report object that we just created will end up generating a PDF using the filename /tmp/report.pdf. Now, let's add some content to it! We'll create a title, some text in paragraphs, and some charts and images. For that, we're going to use what reportlab calls Flowables. Flowables are sort of like chunks of a document that reportlab can arrange to make a complete report. Let's import some Flowable classes.
+
+1
+>>> from reportlab.platypus import Paragraph, Spacer, Table, Image
+Each of these items (Paragraph, Spacer, Table, and Image) are classes that build individual elements in the final document. We have to tell reportlab what style we want each part of the document to have, so let's import some more things from the module to describe style.
+
+12
+>>> from reportlab.lib.styles import getSampleStyleSheet
+>>> styles = getSampleStyleSheet()
+You can make a style all of your own, but we’ll use the default provided by the module for these examples. The styles object now contains a default "sample" style. It’s like a dictionary of different style settings. If you've ever written HTML, the style settings will look familiar. For example h1 represents the style for the first level of headers. Alright, we're finally ready to give this report a title!
+
+1
+>>> report_title = Paragraph("A Complete Inventory of My Fruit", styles["h1"])
+Let's take a look at what this will look like. We can build the PDF now by using the build() method of our report. It takes a list of Flowable elements, and generates a PDF with them.
+
+1
+>>> report.build([report_title])
+Okay, now let's take a look at the PDF:
+
+
+It's not much, but it's a start!
+
+Up next, we'll look into an interesting Flowable for our reports: Tables.
+
+Adding Tables to our PDFs
+Up to now, we've generated an extra simple PDF file, that just includes a title.
+
+Let's spice this up by adding a Table. To make a Table object, we need our data to be in a list-of-lists, sometimes called a two-dimensional array. We have our inventory of fruit in a dictionary. How can we convert a dictionary into a list-of-lists?
+
+123456
+>>> table_data = []
+>>> for k, v in fruit.items():
+...   table_data.append([k, v])
+...
+>>> print(table_data)
+[['elderberries', 1], ['figs', 1], ['apples', 2], ['durians', 3], ['bananas', 5], ['cherries', 8], ['grapes', 13]]
+Great, we have the list of lists. We can now add it to our report and then generate the PDF file once again by calling the build method.
+
+12
+>>> report_table = Table(data=table_data)
+>>> report.build([report_title, report_table])
+And this is how the generated report looks now:
+
+
+Okay, it worked! It's not very easy to read, though. Maybe we should add some style to report_table. For our example, we'll add a border around all of the cells in our table, and move the table over to the left. TableStyle definitions can get pretty complicated, so feel free to take a look at the documentation for a more complete idea of what’s possible.
+
+1234
+>>> from reportlab.lib import colors
+>>> table_style = [('GRID', (0,0), (-1,-1), 1, colors.black)]
+>>> report_table = Table(data=table_data, style=table_style, hAlign="LEFT")
+>>> report.build([report_title, report_table])
+
+Much better! Up next, we'll look into making this more colorful by adding graphs to our reports.
+
+Adding Graphics to our PDFs
+Up to now, we've generated a report with a title and a table of data. Next let's add something a little more graphical. What could be better than a fruit pie (graph)?! We’re going to need to use the Drawing Flowable class to create a Pie chart.
+
+123
+>>> from reportlab.graphics.shapes import Drawing
+>>> from reportlab.graphics.charts.piecharts import Pie
+>>> report_pie = Pie(width=3*inch, height=3*inch)
+To add data to our Pie chart, we need two separate lists: One for data, and one for labels. Once more, we’re going to have to transform our fruit dictionary into a different shape. For an added twist, let's sort the fruit in alphabetical order:
+
+12345678910
+>>> report_pie.data = []
+>>> report_pie.labels = []
+>>> for fruit_name in sorted(fruit):
+...   report_pie.data.append(fruit[fruit_name])
+...   report_pie.labels.append(fruit_name)
+...
+>>> print(report_pie.data)
+[2, 5, 8, 3, 1, 1, 13]
+>>> print(report_pie.labels)
+['apples', 'bananas', 'cherries', 'durians', 'elderberries', 'figs', 'grapes']
+The Pie object isn’t Flowable, but it can be placed inside of a Flowable Drawing.
+
+12
+>>> report_chart = Drawing()
+>>> report_chart.add(report_pie)
+Now, we'll add the new Drawing to the report, and see what it looks like.
+
+1
+report.build([report_title, report_table, report_chart])
+
+Alright, and with that, you've seen a few examples of what we can do with the ReportLab library.  There's a ton more things that can be done that we won't cover here. You'll want to refer to the ReportLab User Guide for more details on the features we've seen, and to see what else you can create with it.
+
+By the way, the ReportLab User Guide is a PDF that is generated using reportlab! Cool, right?
+
+
+
+Module 4 Introduction
+Great job, you've made it to the final module! You’ve come so far! Can you believe how much you’ve learned?
+
+In the past few modules, you've seen how you can modify images using Python Imaging Library; how you can interact with web services using the Python requests module, sending data in JSON format; how you can generate PDF files with the content you want; and how you can send emails with those PDFs as an attachment. 
+
+For the final project in this course, you’ll use the techniques and concepts you've seen to build a solution to a complex IT task. This can seem a bit daunting at first, but don't worry, you already have all the tools to solve this task!
+
+In the next couple of readings, we're going to get into what to expect, and some things you should keep in mind when writing your solution.
+
+Project Problem Statement
+Okay, here's the scenario:
+
+You work for an online fruit store, and you need to develop a system that will update the catalog information with data provided by your suppliers. When each supplier has new products for your store, they give you an image and a description of each product.
+
+Given a bunch of images and descriptions of each of the new products, you’ll:
+
+Upload the new products to your online store. Images and descriptions should be uploaded separately, using two different web endpoints.
+Send a report back to the supplier, letting them know what you imported.
+Since this process is key to your business's success, you need to make sure that it keeps running! So, you’ll also:
+
+Run a script on your web server to monitor system health.
+Send an email with an alert if the server is ever unhealthy.
+Hopefully this summary has helped you start thinking about how you’ll approach this task. In case you’re feeling a little scared, don't worry, you can definitely do this! You have all the necessary tools, and the lab description will go into a lot more detail of what you need to do.
+
+Up next, we'll give you a few tips that can help you along the way.
+
+How to Approach the Problem
+We're giving you a pretty big project to do at the end of this course -- but you can totally complete it with what you've learned until now! Take your time, and be methodical. Use these tips to help you:
+
+Break the problem down into smaller pieces. If you’re not sure how to solve a piece of the puzzle, look for an even smaller piece that you can solve. Build up those smaller pieces into a larger solution!
+
+Make one change at a time. Write unit tests to make sure that each new part of the solution works the way you think it does. Run your unit tests frequently to make sure that each part of your solution keeps working as you make changes.
+
+Use version control. Check each part of your solution into version control as you complete it, so you can always roll back to a known version of your code if you make a mistake.
+
+Review module documentation! You are going to need to use these modules to complete the final project. Reading the documentation takes time, but as you become more familiar with the APIs provided by these modules, it could save you from writing a bunch of custom code that could have just been a call to a module function! Remember, we’ve covered these modules in previous lessons too, so feel free to go back and review them if you need a refresher!
+
+Python Image Library (PIL) - Tutorial
+Requests (HTTP client library) - Quickstart
+ReportLab (PDF creation library)
+email (constructing email)
+psutil (processes and system utilization)
+shutil (file operations)
+smtplib (sending email)
+Read the lab instructions carefully! Following the instructions and implementing your solution to the specifications that you’re given are critical to completing the task, and to being accurately graded! 
+
