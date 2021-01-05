@@ -1,0 +1,65 @@
+[
+   {
+      "NAMES": "IDRIS",
+      "MATHEMATICS": "45",
+      "ENGLISH": "70",
+      "PHYSICS": "33",
+      "CHEMISTRY": "56"
+   },
+   {
+      "NAMES": "SULAIMAN",
+      "MATHEMATICS": "89",
+      "ENGLISH": "50",
+      "PHYSICS": "56",
+      "CHEMISTRY": "98"
+   },
+   {
+      "NAMES": "SOLOMON",
+      "MATHEMATICS": "45",
+      "ENGLISH": "45",
+      "PHYSICS": "67",
+      "CHEMISTRY": "39"
+   },
+   {
+      "NAMES": "AISHA",
+      "MATHEMATICS": "56",
+      "ENGLISH": "77",
+      "PHYSICS": "80",
+      "CHEMISTRY": "56"
+   },
+   {
+      "NAMES": "KHALID",
+      "MATHEMATICS": "79",
+      "ENGLISH": "58",
+      "PHYSICS": "98",
+      "CHEMISTRY": "89"
+   },
+   {
+      "NAMES": "JOSEPH",
+      "MATHEMATICS": "67",
+      "ENGLISH": "45",
+      "PHYSICS": "69",
+      "CHEMISTRY": "55"
+   },
+   {
+      "NAMES": "GRACE",
+      "MATHEMATICS": "55",
+      "ENGLISH": "33",
+      "PHYSICS": "29",
+      "CHEMISTRY": "78"
+   },
+   {
+      "NAMES": "ALI",
+      "MATHEMATICS": "78",
+      "ENGLISH": "33",
+      "PHYSICS": "78",
+      "CHEMISTRY": "50"
+   },
+   {
+      "NAMES": "ABDUL",
+      "MATHEMATICS": "45",
+      "ENGLISH": "70",
+      "PHYSICS": "88",
+      "CHEMISTRY": "90"
+   }
+]
